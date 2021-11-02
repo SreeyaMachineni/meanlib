@@ -1,0 +1,66 @@
+<div class="text-center text-white font-weight-bold" *ngIf="!book">
+    Add Book
+</div>
+<div class="text-center text-white font-weight-bold" *ngIf="book">
+    Edit Book
+</div>
+
+
+<form class="container pt-5" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Title</label>
+        </div>
+        <div class="col text-left">
+            <input type="text" formControlName="title">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Author</label>
+        </div>
+        <div class="col text-left">
+            <input type="text" formControlName="author">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Summary</label>
+        </div>
+        <div class="col text-left">
+            <textarea cols="30" rows="5" formControlName="summary"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Genre</label>
+        </div>
+        <div class="col text-left">
+            <input type="text" formControlName="genre">
+        </div>
+    </div>
+
+    <div class="row pt-3">
+        <div class="col text-right ml-5">
+            <button type="button" class="btn btn-danger" (click)="cancel()">
+                <i class="fas fa-times text-white pr-2"></i> Cancel
+            </button>       
+        </div>
+        <div class="col text-left">
+            <button type="submit" class="btn btn-primary" *ngIf="book">
+                Edit Book
+            </button>
+            <button type="submit" class="btn btn-primary" *ngIf="!book">
+                <i class="fas fa-plus text-white pr-2"></i>Add Book
+            </button> 
+        </div>
+    </div>
+</form>
+
+
+
+    
+

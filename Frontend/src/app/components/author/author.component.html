@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="alert" *ngIf="authMsg" [ngClass]="{'alert-success':authMsg&&msgCode === 'S','alert-danger':authMsg&&msgCode==='F'}">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{authMsg}}
+  </div>
+</div>
+
+
+<div class="container text-right p-2">
+    <button type="button" class="btn btn-info" [routerLink]="['/addAuthor']">
+        <i class="fas fa-plus text-white"></i> Add Author
+    </button>
+</div>
+
+
+<div class="container">
+  <table class="table table-hover">
+      <thead class="bg-warning">
+          <tr>
+              <th class="text-white">Name</th>
+              <th class="text-white">Year of Birth</th>
+              <th class="text-white">Year of Death</th>
+              <th class="text-white">Actions</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let author of authors">
+              <td class="text-white font-weight-bold">{{author.firstName}} {{author.lastName}}</td>
+              <td class="text-white font-weight-bold"> {{author.yearOfBirth}}</td>
+              <td class="text-white font-weight-bold">{{author.yearOfDeath}}</td>
+              <td>
+                  <span class="p-1">
+                      <i class="fas fa-edit" (click)="editAuthor(author)"></i>
+                  </span>
+                  <span class="p-1">
+                      <i class="fas fa-trash" (click)="deleteAuthor(author)"></i>
+                  </span>
+              </td>                
+          </tr>
+          <tr *ngIf="!authors.length">
+            <td></td>
+            <td></td>
+            <td class="text-white">No Authors to display</td>
+            <td></td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+
+

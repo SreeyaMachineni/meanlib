@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+  }
+
+  .home{
+    background-image: url('./assets/library.jfif');
+    position: fixed;
+    /* background-repeat: no-repeat; */
+    width: 100%;
+    background-size: cover;
+  }
+
+/* table tr td{
+  color: white;
+} */
+
+.fa-edit{
+  color:#66ff33
+}
+.fa-trash{
+  color: #ff5050;
+}
+

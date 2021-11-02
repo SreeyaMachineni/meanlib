@@ -1,0 +1,59 @@
+<div class="text-center text-white font-weight-bold" *ngIf="!author">
+    Add Author
+</div>
+<div class="text-center text-white font-weight-bold" *ngIf="author">
+    Edit Author
+</div>
+
+<form class="container pt-5" [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>First Name</label>
+        </div>
+        <div class="col text-left">
+            <input type="text" formControlName="firstName">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Last Name</label>
+        </div>
+        <div class="col text-left">
+            <input type="text" formControlName="lastName">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Year of Birth</label>
+        </div>
+        <div class="col text-left">
+            <input type="number" formControlName="yearOfBirth">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-right text-white font-weight-bold">
+            <label>Year of Death</label>
+        </div>
+        <div class="col text-left">
+            <input type="number" formControlName="yearOfDeath">
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col text-right ml-5">
+            <button type="button" class="btn btn-danger" (click)="cancel()">
+                <i class="fas fa-times text-white pr-2"></i> Cancel
+            </button>       
+        </div>
+        <div class="col text-left">
+            <button type="submit" class="btn btn-primary" *ngIf="author">
+                Edit Author
+            </button>
+            <button type="submit" class="btn btn-primary" *ngIf="!author">
+                <i class="fas fa-plus text-white pr-2"></i>Add Author
+            </button> 
+        </div>
+    </div>
+</form>
